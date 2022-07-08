@@ -1,0 +1,7 @@
+﻿1. Create a Cricket club management software
+2. Manage players and their contracts
+3. etc...
+
+
+
+1. Create a class called Player and implement its functionality
