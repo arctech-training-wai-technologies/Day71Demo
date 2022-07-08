@@ -1,6 +1,6 @@
 namespace Day71Demo.UnitTests;
 
-public class UnitTest1
+public class UnitTestFacts
 {
     [Fact]
     public void TestFullNameLogic()
