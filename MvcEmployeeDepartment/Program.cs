@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using MvcEmployeeDepartment;
 using MvcEmployeeDepartment.Data;
+using MvcEmployeeDepartment.Data.Repository;
+using MvcEmployeeDepartment.Data.Repository.@base;
 using MvcEmployeeDepartment.Services;
+using MvcEmployeeDepartment.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +16,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
-builder.Services.AddScoped<IDepartmentsService, DepartmentsService>();
+builder.Services.AddScoped<IDepartmentRepository<DepartmentViewModel>, DepartmentRepository<DepartmentViewModel>>();
+builder.Services.AddScoped<IEmployeeRepository<EmployeeViewModel>, EmployeeRepository<EmployeeViewModel>>();
 builder.Services.AddScoped<IEmployeesService, EmployeesService>();
-
 
 var app = builder.Build();
 

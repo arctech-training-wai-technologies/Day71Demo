@@ -11,11 +11,11 @@ public class EmployeeRepository<TViewModel> : Repository<Employee, TViewModel>, 
     private readonly IMapper _mapper;
     private readonly DbSet<Employee> _dbSet;
 
-    public EmployeeRepository(ApplicationDbContext dbContext, IMapper mapper, DbSet<Employee> dbSet) :
-        base(dbContext, mapper, dbSet)
+    public EmployeeRepository(ApplicationDbContext dbContext, IMapper mapper) :
+        base(dbContext, mapper, dbContext.Employees)
     {
         _mapper = mapper;
-        _dbSet = dbSet;
+        _dbSet = dbContext.Employees;
     }
 
     public async Task<List<TViewModel>> GetEmployeesInDepartmentAsync(int departmentId)

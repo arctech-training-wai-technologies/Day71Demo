@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmployeeViewModel>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div>
+    <h1>Employees List</h1>
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            @*<th>Id</th>*@
+            <th>Name</th>
+            <th>DateOfBirth</th>
+            <th>Gender</th>
+            <th>Department Name</th>
+            <th colspan="3">Operations</th>
+        </tr>
+    </thead>
+    @foreach (var employee in Model)
+    {
+            <tbody>
+                <tr>
+                    <td>@employee.Name</td>
+                    <td>@employee.DateOfBirth</td>
+                    <td>@employee.Gender</td>
+                    <td>@employee.DepartmentName</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-warning">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@employee.Id" class="btn btn-primary">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+    }
+</table>

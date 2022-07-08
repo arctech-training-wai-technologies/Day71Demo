@@ -11,11 +11,11 @@ public class DepartmentRepository<TViewModel> : Repository<Department, TViewMode
     private readonly IMapper _mapper;
     private readonly DbSet<Department> _dbSet;
 
-    public DepartmentRepository(ApplicationDbContext dbContext, IMapper mapper, DbSet<Department> dbSet) :
-        base(dbContext, mapper, dbSet)
+    public DepartmentRepository(ApplicationDbContext dbContext, IMapper mapper) :
+        base(dbContext, mapper, dbContext.Departments)
     {
         _mapper = mapper;
-        _dbSet = dbSet;
+        _dbSet = dbContext.Departments;
     }
 
     public async Task<List<T>> GetForDropDownAsync<T>()

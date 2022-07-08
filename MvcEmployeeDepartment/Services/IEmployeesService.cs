@@ -8,5 +8,7 @@ public interface IEmployeesService
     Task<EmployeeViewModel?> GetByIdAsync(int id);
     Task CreateAsync(EmployeeViewModel employee);
     Task<List<DropDownViewModel>> GetDepartmentsForDropDownAsync();
-    Task<IEnumerable<EmployeeBonusViewModel>> GetEmployeeBonusPayable(decimal sales, decimal target);
+    Task<IEnumerable<EmployeeBonusViewModel>> GetEmployeeBonusPayableAsync(decimal sales, decimal target);
+    Task<List<EmployeeViewModel>> GetAllMalesAsync();
+    Task<List<EmployeeViewModel>> GetAllFemalesAsync();
 }
