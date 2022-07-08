@@ -41,6 +41,7 @@ public class EmployeesService : IEmployeesService
         await _employeeRepository.CreateAsync(employee);
     }
 
+
     public async Task<List<DropDownViewModel>> GetDepartmentsForDropDownAsync()
     {
         return await _departmentRepository.GetForDropDownAsync<DropDownViewModel>();
